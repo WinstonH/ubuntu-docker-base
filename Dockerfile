@@ -11,12 +11,12 @@ RUN locale-gen zh_CN.UTF-8 && \
     apt-get install -y gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal && \
     apt-get install -y tightvncserver && \
     mkdir /root/.vnc && \
-	apt-get install -y openssh-server supervisor git vim firefox ttf-wqy-microhei libnet1-dev libpcap0.8-dev && \
+    apt-get install -y openssh-server supervisor git vim firefox ttf-wqy-microhei libnet1-dev libpcap0.8-dev && \
     mkdir /var/run/sshd && \
     echo 'root:root' |chpasswd && \
     sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
     sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
-	apt-get clean && rm -rf /var/lib/apt/lists/*
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY supervisord.conf /etc/supervisord.conf
 COPY reset.sh /root/reset.sh
@@ -30,7 +30,7 @@ RUN git clone https://github.com/snooda/net-speeder.git net-speeder
 WORKDIR net-speeder
 RUN sh build.sh && \
     mv net_speeder /usr/local/bin/ && \
-	chmod 600 /root/.vnc/passwd && \
+    chmod 600 /root/.vnc/passwd && \
     chmod +x /usr/local/bin/net_speeder
 
 ADD entrypoint.sh /usr/sbin
