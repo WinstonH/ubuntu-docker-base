@@ -12,7 +12,7 @@ RUN locale-gen zh_CN.UTF-8 && \
     apt-get install -y tightvncserver && \
     mkdir /root/.vnc && \
     apt-get install -y openssh-server supervisor git vim wget curl firefox ttf-wqy-microhei libnet1-dev libpcap0.8-dev && \
-    apt-get install -y apt-get install -y language-pack-zh-hans-base language-pack-zh-hans language-pack-gnome-zh-hans language-pack-gnome-zh-hans-base
+    apt-get install -y apt-get install -y language-pack-zh-hans-base language-pack-zh-hans language-pack-gnome-zh-hans language-pack-gnome-zh-hans-base && \
     mkdir /var/run/sshd && \
     echo 'root:root' |chpasswd && \
     sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
